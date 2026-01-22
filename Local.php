@@ -2,7 +2,7 @@
 class Local{
     public string $Name;
     public string $Address;
-    public array $Games;
+    private array $Games;
 
     public function __construct($name, $address, $games) {
         $this->Name = $name;
@@ -12,6 +12,13 @@ class Local{
 
     public function mostrarInfo() {
         return "Local: " . $this->Name . ", Dirección: " . $this->Address . ", Juegos Disponibles: " . count($this->Games);
+    }
+    public function getName(): string {
+        return $this->Name;
+    }
+
+    public function getAddress(): string {
+        return $this->Address;
     }
 
     public function addGame($game) {
@@ -26,9 +33,10 @@ class Local{
 
     public function SearchGameByComplexity($complexity): array {
         $filteredGames = [];
+        //TODO: échale un vistazo a array_filter() ;)
         foreach ($this->Games as $game) {
             if ($game->Complexity === $complexity) {
-                $filteredGames[] = $game;
+                $filteredGames[] = $game->getName();
             }
         }
         return $filteredGames;

@@ -25,6 +25,9 @@ class juego {
     public function getName(): string {
         return $this->Name;
     }
+    public function getComplexity(): string {
+        return $this->Complexity;
+    }
 
 }
 
