@@ -4,10 +4,10 @@ class Local{
     public string $Address;
     private array $Games;
 
-    public function __construct($name, $address, $games) {
-        $this->Name = $name;
-        $this->Address = $address;
-        $this->Games = $games;
+    public function __construct(string $Name, string $Address, array $Games) {
+        $this->Name = $Name;
+        $this->Address = $Address;
+        $this->Games = $Games;
     }
 
     public function mostrarInfo() {
@@ -21,11 +21,11 @@ class Local{
         return $this->Address;
     }
 
-    public function addGame($game) {
+    public function addGame($game): void {
         $this->Games[] = $game;
     }
 
-    public function listGames() {
+    public function listGames(): void {
         foreach ($this->Games as $game) {
             echo $game->mostrarInfo() . "\n";
         }
@@ -33,7 +33,7 @@ class Local{
 
     public function SearchGameByComplexity($complexity): array {
         $filteredGames = [];
-        //TODO: échale un vistazo a array_filter() ;)
+        //TODO: échale un vistazo a array_filter() ;) --> hecho en función SearchGameByComplexity2
         foreach ($this->Games as $game) {
             if ($game->Complexity === $complexity) {
                 $filteredGames[] = $game->getName();
@@ -49,5 +49,9 @@ class Local{
             }
         }
         return $filteredGames;
+    }
+
+    public function SearchGameByComplexity2($complexity): array {
+        return array_filter($this->Games, fn($game) => $game->Complexity === $complexity);
     }
 }   
