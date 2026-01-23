@@ -44,7 +44,7 @@ class Local{
     public function SearchGameByPlayers(int $PlayersNumber ): array {
         $filteredGames = [];
         foreach ($this->Games as $game) {
-            if ($game->PlayersNumber === $PlayersNumber) {
+            if ($game->PlayersNumber >= $PlayersNumber) {
                 $filteredGames[] = $game;
             }
         }

@@ -30,8 +30,8 @@ $ListadoJuegos1 = $Local1Games->SearchGameByComplexity(Complexity::EASY->value);
 }*/
 echo implode(",",$ListadoJuegos1). PHP_EOL;
 
-echo "\nBuscamos juegos para 4 jugadores:\n";
-$ListadoJuegos2 = $Local1Games->SearchGameByPlayers(4);
+echo "\nBuscamos juegos para 5 jugadores:\n";
+$ListadoJuegos2 = $Local1Games->SearchGameByPlayers(5);
 foreach ($ListadoJuegos2 as $juego) {
     echo $juego->getName() . "\n";
 }
